@@ -9,6 +9,164 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      food_items: {
+        Row: {
+          category: string
+          created_at: string | null
+          description: string | null
+          id: string
+          image_url: string | null
+          name: string
+          price: number
+        }
+        Insert: {
+          category: string
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name: string
+          price: number
+        }
+        Update: {
+          category?: string
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name?: string
+          price?: number
+        }
+        Relationships: []
+      }
+      food_order_items: {
+        Row: {
+          created_at: string | null
+          food_item_id: string
+          id: string
+          order_id: string
+          price: number
+          quantity: number
+        }
+        Insert: {
+          created_at?: string | null
+          food_item_id: string
+          id?: string
+          order_id: string
+          price: number
+          quantity?: number
+        }
+        Update: {
+          created_at?: string | null
+          food_item_id?: string
+          id?: string
+          order_id?: string
+          price?: number
+          quantity?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "food_order_items_food_item_id_fkey"
+            columns: ["food_item_id"]
+            isOneToOne: false
+            referencedRelation: "food_items"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "food_order_items_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "food_orders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      food_orders: {
+        Row: {
+          created_at: string | null
+          id: string
+          status: string
+          total_amount: number
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          status?: string
+          total_amount: number
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          status?: string
+          total_amount?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      game_sessions: {
+        Row: {
+          completed: boolean
+          created_at: string | null
+          game_id: string
+          id: string
+          score: number
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean
+          created_at?: string | null
+          game_id: string
+          id?: string
+          score?: number
+          user_id: string
+        }
+        Update: {
+          completed?: boolean
+          created_at?: string | null
+          game_id?: string
+          id?: string
+          score?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "game_sessions_game_id_fkey"
+            columns: ["game_id"]
+            isOneToOne: false
+            referencedRelation: "games"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      games: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          id: string
+          name: string
+          points: number
+          type: string
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          name: string
+          points?: number
+          type: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          name?: string
+          points?: number
+          type?: string
+        }
+        Relationships: []
+      }
       points_history: {
         Row: {
           amount: number
@@ -95,6 +253,30 @@ export type Database = {
           id?: string
           points_cost?: number
           title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      social_tracking: {
+        Row: {
+          created_at: string | null
+          duration: number
+          id: string
+          platform: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          duration: number
+          id?: string
+          platform: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          duration?: number
+          id?: string
+          platform?: string
           user_id?: string
         }
         Relationships: []

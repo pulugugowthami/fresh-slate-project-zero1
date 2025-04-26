@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { usePoints } from "@/contexts/PointsContext";
 import PageContainer from "@/components/layout/PageContainer";
 import TaskList from "@/components/tasks/TaskList";
@@ -10,11 +11,13 @@ import SkillEvolution from "@/components/features/SkillEvolution";
 import ComboChain from "@/components/features/ComboChain";
 import TimeFlux from "@/components/features/TimeFlux";
 import MomentumEngine from "@/components/features/MomentumEngine";
+import GameList from "@/components/games/GameList";
+import SocialTracker from "@/components/social/SocialTracker";
+import FoodMenu from "@/components/food/FoodMenu";
 
 const Dashboard = () => {
   const { tasks, rewards, stats, completeTask, redeemReward } = usePoints();
   
-  // Filter active tasks (not completed)
   const activeTasks = tasks.filter(task => !task.completed);
 
   return (
@@ -39,6 +42,11 @@ const Dashboard = () => {
           </div>
         </div>
         
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <GameList />
+          <SocialTracker />
+        </div>
+
         <div className="mt-4">
           <Tabs defaultValue="gambit" className="w-full">
             <TabsList className="grid grid-cols-5 mb-4">
@@ -64,6 +72,10 @@ const Dashboard = () => {
               <MomentumEngine />
             </TabsContent>
           </Tabs>
+        </div>
+
+        <div className="mt-4">
+          <FoodMenu />
         </div>
       </div>
     </PageContainer>

@@ -1,0 +1,100 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 155 30% 10%;
+    --foreground: 155 10% 95%;
+
+    --card: 155 20% 15%;
+    --card-foreground: 155 10% 95%;
+
+    --popover: 155 20% 15%;
+    --popover-foreground: 155 10% 95%;
+
+    --primary: 155 70% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 155 60% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 155 30% 20%;
+    --muted-foreground: 155 10% 75%;
+
+    --accent: 155 20% 25%;
+    --accent-foreground: 155 10% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 155 20% 30%;
+    --input: 155 20% 30%;
+    --ring: 155 70% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 155 20% 12%;
+    --sidebar-foreground: 155 10% 90%;
+    --sidebar-primary: 155 70% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 155 40% 20%;
+    --sidebar-accent-foreground: 155 40% 90%;
+    --sidebar-border: 155 20% 20%;
+    --sidebar-ring: 155 70% 50%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-image: url('/lovable-uploads/7b49117b-2964-437c-bc83-126a197052e9.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: rgba(16, 24, 20, 0.9);
+    background-blend-mode: overlay;
+  }
+}
+
+@layer components {
+  .pixel-card {
+    @apply border-2 border-habit-pixelgreen bg-black/50 backdrop-blur-sm rounded-md p-4 shadow-lg hover:shadow-habit-pixelgreen/20 transition-all duration-300;
+  }
+  
+  .pixel-title {
+    @apply font-mono text-lg font-bold text-habit-pixelgreen mb-2;
+  }
+  
+  .pixel-border {
+    @apply border-2 border-habit-pixelgreen rounded-md;
+  }
+  
+  .point-circle {
+    @apply inline-block h-3 w-3 rounded-full bg-habit-pixelgreen;
+  }
+
+  .task-button {
+    @apply relative flex items-center w-full px-4 py-3 rounded-lg transition-all hover:bg-accent;
+  }
+
+  .task-icon {
+    @apply mr-3 h-5 w-5 text-primary;
+  }
+
+  .point-counter {
+    @apply ml-auto flex items-center gap-1 text-sm font-medium text-muted-foreground;
+  }
+
+  .reward-card {
+    @apply relative overflow-hidden rounded-xl border border-habit-pixelgreen bg-black/40 backdrop-blur-sm p-5 transition-all hover:shadow-md hover:shadow-habit-pixelgreen/20;
+  }
+
+  .stat-card {
+    @apply flex flex-col rounded-xl border border-habit-pixelgreen/50 bg-black/30 backdrop-blur-sm p-5 transition-all hover:border-habit-pixelgreen;
+  }
+}

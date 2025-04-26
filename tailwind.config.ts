@@ -66,19 +66,22 @@ export default {
 				habit: {
 					purple: '#8B5CF6',
 					darkpurple: '#7E69AB',
-					green: '#50C878', // Updated to emerald green
+					green: '#50C878',
 					yellow: '#FEF7CD',
 					orange: '#FEC6A1',
 					softpurple: '#E5DEFF',
-					pixelgreen: '#7FFFD4', // Pixel-art styled green
-					pixeldarkgreen: '#2E8B57', // Darker pixel green for contrast
-					pixelblue: '#87CEEB', // Pixel-art styled blue
-					pixelpurple: '#9370DB', // Pixel-art styled purple
+					pixelgreen: '#7FFFD4',
+					pixeldarkgreen: '#2E8B57',
+					pixelblue: '#87CEEB',
+					pixelpurple: '#9370DB',
+					neon: '#39FF14',
+					cyber: '#00FFFF',
 				}
 			},
 			backgroundImage: {
 				'game-pattern': "url('/lovable-uploads/7b49117b-2964-437c-bc83-126a197052e9.png')",
-				'gradient-game': 'linear-gradient(to bottom, rgba(16, 24, 20, 0.9), rgba(16, 24, 20, 0.7))',
+				'gradient-game': 'linear-gradient(to bottom, rgba(16, 24, 39, 0.9), rgba(16, 24, 39, 0.7))',
+				'cyber-grid': 'linear-gradient(to right, rgba(127, 255, 212, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(127, 255, 212, 0.1) 1px, transparent 1px)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -102,13 +105,18 @@ export default {
 				'pixel-float': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-5px)' }
+				},
+				'neon-pulse': {
+					'0%, 100%': { filter: 'drop-shadow(0 0 5px rgba(127, 255, 212, 0.7))' },
+					'50%': { filter: 'drop-shadow(0 0 10px rgba(127, 255, 212, 1))' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'point-earned': 'point-earned 0.5s ease-out',
-				'pixel-float': 'pixel-float 3s ease-in-out infinite'
+				'pixel-float': 'pixel-float 3s ease-in-out infinite',
+				'neon-pulse': 'neon-pulse 2s ease-in-out infinite'
 			}
 		}
 	},
